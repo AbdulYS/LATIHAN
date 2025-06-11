@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
+    <!-- <data noupdate="1"> -->
     <record id="course_odoo_technical" model="digitalspace.course">
         <field name="name">Course Odoo Technical</field>
         <field name="description">Course Odoo Technical Community Edition (16)</field>
     </record>
 
-        <record id="course_odoo_Functional" model="digitalspace.course">
+     <record id="course_odoo_Functional" model="digitalspace.course">
         <field name="name">Course Odoo Functional</field>
         <field name="description">Course Odoo Functional Beginner</field>
     </record>
-
+    <!-- </data> -->
 </odoo>

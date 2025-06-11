@@ -1,2 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_digitalspace_digitalspace,digitalspace.digitalspace,model_digitalspace_digitalspace,base.group_user,1,1,1,1
+acces_digitalspace_course,digitalspace.course,model_digitalspace_course,,1,1,1,1
