@@ -11,3 +11,10 @@ class Session(models.Model):
     duration = fields.Float(string='Duration')
     number_of_seats = fields.Float(string='Number of seats')
     description = fields.Text(string='Description')
+
+    # Many2one
+    user_id = fields.Many2one('res.users', string='Instructor')
+    course_id = fields.Many2one(comodel_name='digitalspace.course', string='Course', required=True)
+
+    # Many2many
+    partner_ids = fields.Many2many('res.partner', string='Attendees')

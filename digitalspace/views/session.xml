@@ -32,8 +32,15 @@
                             <field name="duration"/>
                             <field name="number_of_seats"/>
                         </group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="course_id"/>
+                        </group>
                     </group>
                     <notebook>
+                        <page name="partner_ids" string="Attendees">
+                            <field name="partner_ids"/>
+                        </page>
                         <page string="Description" name="Description">
                             <field name="description"/>
                         </page>

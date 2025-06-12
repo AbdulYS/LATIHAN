@@ -8,6 +8,7 @@
             <tree>
                 <!-- Add your fields here -->
                 <field name="name"/>
+                <field name="user_id"/>
                 <field name="description"/>
             </tree>
         </field>
@@ -22,8 +23,12 @@
                     <group>
                         <!-- Add your fields here -->
                         <field name="name"/>
+                        <field name="user_id"/>
                     </group>
                     <notebook>
+                        <page name="session_ids" string="Sessions">
+                            <field name="session_ids"/>
+                        </page>
                         <page string="Description" name="Description">
                             <group>
                                 <field name="description"/>
