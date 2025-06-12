@@ -28,6 +28,8 @@
         'views/menu.xml',
         'views/course.xml',
         'views/session.xml',
+        'views/partner.xml',
+        'views/user.xml',
         'views/views.xml',
         'views/templates.xml',
     ],
