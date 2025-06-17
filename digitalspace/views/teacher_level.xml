@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- digitalspace.teacher_level tree view -->
+    <record id="digitalspace.teacher_level_view_tree" model="ir.ui.view">
+        <field name="name">digitalspace.teacher_level.view.tree</field>
+        <field name="model">digitalspace.teacher_level</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="description"/> 
+            </tree>
+        </field>
+    </record>
+
+    <!-- digitalspace.teacher_level action window -->
+    <record id="digitalspace.teacher_level_action" model="ir.actions.act_window">
+        <field name="name">Teacher Level</field>
+        <field name="res_model">digitalspace.teacher_level</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="teacher_level_menu_act" name="Teacher Level" parent="base.menu_users" action="digitalspace.teacher_level_action" sequence="1"/>
+</odoo>

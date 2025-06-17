@@ -13,7 +13,7 @@ class Session(models.Model):
     description = fields.Text(string='Description')
 
     # Many2one
-    user_id = fields.Many2one('res.users', string='Instructor')
+    user_id = fields.Many2one('res.users', string='Instructor', domain="['!',('is_instructor','=',True),('teacher_level_id','!=',False)]")
     course_id = fields.Many2one(comodel_name='digitalspace.course', string='Course', required=True)
 
     # Many2many

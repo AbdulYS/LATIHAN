@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 acces_digitalspace_course,digitalspace.course,model_digitalspace_course,,1,1,1,1
 acces_digitalspace_session,digitalspace.session,model_digitalspace_session,,1,1,1,1
+acces_digitalspace_teacher_level,digitalspace.teacher_level,model_digitalspace_teacher_level,,1,1,1,1

@@ -10,6 +10,7 @@
             <!-- Add your xpath here -->
             <xpath expr="//div[@class='oe_title']/group[1]/field[@name='partner_id']" position="after">
                 <field name="is_instructor"/>
+                <field name="teacher_level_id"/>
             </xpath>
         </field>
     </record>
