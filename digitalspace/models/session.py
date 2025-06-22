@@ -5,9 +5,10 @@ from odoo import models, fields, api
 class Session(models.Model):
     _name = 'digitalspace.session'
     _description = 'digitalspace.session'
+    _inherit = 'mail.thread'
 
     name = fields.Char(string='Name', required=True)
-    start_date = fields.Date(string='Start Date')
+    start_date = fields.Date(string='Start Date', default = fields.Date.today())
     duration = fields.Float(string='Duration')
     number_of_seats = fields.Float(string='Number of seats')
     description = fields.Text(string='Description')
@@ -30,3 +31,17 @@ class Session(models.Model):
                 rec.taken_seats = len(rec.partner_ids) / rec.number_of_seats * 100
             else:
                 rec.taken_seats = 0
+
+    # Default
+    state = fields.Selection([
+        ('draft', 'Draft'),
+        ('progres', 'Progres'),
+        ('done', 'Done')
+    ], string='State', default='draft', track_visibility='onchange')
+    active = fields.Boolean(string='Active', default = True)
+
+    def action_confirm(self):
+        self.state = 'progres'
+    
+    def action_done(self):
+        self.state = 'done'
