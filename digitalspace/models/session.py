@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 class Session(models.Model):
     _name = 'digitalspace.session'
@@ -64,3 +65,10 @@ class Session(models.Model):
                     'message': "Partcipants more then seats",
                 }
             }
+    # Constraint Python
+    @api.constrains('partner_ids','user_id')
+    def _check_something(self):
+        for record in self:
+            partner_user_ids = self.env['res.users'].sudo().search([('partner_id','in',[x.id for x in record.partner_ids])])
+            if record.user_id in partner_user_ids:
+                raise ValidationError("Instructor cannot be attendess: %s" % record.user_id.partner_id.name)
