@@ -45,3 +45,22 @@ class Session(models.Model):
     
     def action_done(self):
         self.state = 'done'
+
+    # Onchange
+    @api.onchange('number_of_seats')
+    def _onchange_number_of(self):
+        if self.number_of_seats < 0:
+           return {
+               'warning': {
+                   'title': "Invalid Values",
+                   'message': "Please input valid value on number of seats",
+               }
+           }
+        
+        if self.number_of_seats < len(self.partner_ids):
+            return {
+                'warning': { 
+                    'title': "Something Bad Happend",
+                    'message': "Partcipants more then seats",
+                }
+            }
