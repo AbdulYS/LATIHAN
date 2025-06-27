@@ -6,6 +6,11 @@ class Course(models.Model):
     _name = 'digitalspace.course'
     _description = 'digitalspace.course'
 
+    _sql_constraints = [
+        ('_check_name_unique', 'UNIQUE(name)', 'Name must be unique'),
+        ('_check_name_different_description', 'CHECK(name != description)', 'Name and description must be different')
+    ]
+
     name = fields.Char(string='Name', required=True)
     description = fields.Text(string='Description')
 
