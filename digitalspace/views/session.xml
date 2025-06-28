@@ -5,7 +5,7 @@
         <field name="name">digitalspace.session.view.tree</field>
         <field name="model">digitalspace.session</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree decoration-info="duration &lt; 5" decoration-danger="duration &gt; 15">
                 <!-- Add your fields here -->
                 <field name="active" invisible="1"/>
                 <field name="name"/>
@@ -50,7 +50,13 @@
                     </group>
                     <notebook>
                         <page name="partner_ids" string="Attendees">
-                            <field name="partner_ids"/>
+                            <field name="partner_ids">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="phone"/>
+                                    <field name="email"/>
+                                </tree>
+                            </field>
                         </page>
                         <page string="Description" name="Description">
                             <field name="description"/>
