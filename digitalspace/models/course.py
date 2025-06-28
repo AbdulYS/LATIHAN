@@ -19,3 +19,29 @@ class Course(models.Model):
 
     # One2many
     session_ids = fields.One2many('digitalspace.session', 'course_id', string='Sessions')
+
+    def copy(self, default=None):
+        # import pdb;
+        # pdn.set_trace()
+        # []
+        default = dict(default or {})
+
+    # Training Odoo
+    # Cari course name nya like copy of training odoo
+    # 3
+        copied_count = self.search_count(
+            [('name', '=like', "Copy of {}%".format(self.name))])
+
+    # Kalau tidak ada
+        if not copied_count:
+        # Copy of training odoo
+            new_name = "Copy of {}".format(self.name)
+
+    # # Kalau ada
+        else:
+            # Copy of training odoo (jumlah ada berapa)
+            new_name = "Copy of {} ({})".format(self.name, copied_count)
+
+        default['name'] = new_name
+
+        return super(Course, self).copy(default)
