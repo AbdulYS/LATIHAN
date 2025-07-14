@@ -71,11 +71,23 @@
         </field>
     </record>
 
+        <!-- digitalspace.session calendar view -->
+    <record id="digitalspace.session_view_calendar" model="ir.ui.view">
+        <field name="name">digitalspace.session.view.calendar</field>
+        <field name="model">digitalspace.session</field>
+        <field name="arch" type="xml">
+            <calendar date_start="start_date" color="course_id">
+                <!-- Add your fields here -->
+                <field name="name"/>
+            </calendar>
+        </field>
+    </record>
+
     <!-- digitalspace.session action window -->
     <record id="digitalspace.session_action" model="ir.actions.act_window">
         <field name="name">Session</field>
         <field name="res_model">digitalspace.session</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,calendar</field>
     </record>
 
     <!-- This Menu Item must have a parent and an action -->
